@@ -1,109 +1,589 @@
-# TP Final Base de Datos.
+# TP Final Base de Datos - Análisis Financiero IA - v1.0.0
 
-# Resumen
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 
-*Una pagina web que recibe preguntas de contexto empresarial/financiera y devuelve: series temporales, indicadores técnicos y fundamentales, análisis estadístico y una recomendación generada por IA. El sistema combina ingestión de datos (APIs / scraping), almacenamiento flexible (NoSQL preferido), procesamiento estadístico/ML y una capa de personalización basada en vectores (historial de la conversación / chat).*
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-# Objetivos
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
-- Entregar respuestas interpretables y accionables sobre instrumentos financieros.
-- Soportar datos heterogéneos (acciones, criptos, FX, startups).
-- Permitir extensibilidad: nuevos parámetros, nuevas fuentes y nuevos modelos.
+[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
-# Alcance
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
-- Inputs: consultas en lenguaje natural (ej.: "¿Cuál es la mejor empresa para invertir ahora?").
-- Outputs: informe estructurado con datos en tiempo real/históricos, indicadores técnicos, métricas de riesgo, y recomendación con justificación.
-- Integraciones previstas: APIs de mercado, web scraping como fallback, motores de embeddings, y (opcional) integración Python + ML (MATE 3 — confirmar con el equipo).
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 
-# Flujo de funcionamiento (alto nivel)
+![AI](https://img.shields.io/badge/AI-412991?style=for-the-badge&logo=openai&logoColor=white)
 
-1. Recepción del input (chat / query API).
-2. Preprocesamiento / vectorización de la consulta (API#1) para detectar intención y entidades.
-3. Búsqueda en la BD local (si existe historial/datos ya ingestados).
-4. Si faltan datos → pipeline de ingestión: API externa → store / o web scraping → store.
-5. Cálculos: estadísticas, indicadores técnicos, modelos de ML/serie temporal.
-6. Generación de informe (plantilla + explicación) por API#2 (puede ser un LLM controlador).
-7. Personalización: re-rank o adaptar lenguaje según perfil del usuario (vectores / historial).
-8. Entrega al usuario y almacenamiento del intercambio para aprendizaje futuro.
+- Proveer respuestas interpretables y accionables sobre instrumentos financieros.
 
-# Ejemplo de ejecución (paso a paso)
+## 📋 Descripción- Soportar datos heterogéneos: acciones, criptomonedas, divisas (FX), startups, entre otros
 
-Input: ¿Cuál es la mejor empresa para invertir **ahora**?
+- Facilitar la extensibilidad para incorporar nuevos parámetros, fuentes y modelos.
 
-- A) Vectorizamos la pregunta → detectamos: horizonte ("ahora" -> corto plazo), activo: empresa (si no indicada, pedir aclaración o usar top picks).
-- B) Consultamos BD: precios, volumen, indicadores técnicos, noticias relevantes.
-- C) Si falta info: obtenemos datos externos y los persistimos.
-- D) Ejecutamos cálculos (RSI, MACD, medias móviles, volatilidad, VaR simple, correlaciones).
-- E) LLM monta el informe (resumen numérico + gráfico + conclusión y nivel de confianza).
+Plataforma web inteligente para análisis financiero y empresarial desarrollada como trabajo práctico final de Base de Datos. El sistema permite realizar consultas en lenguaje natural sobre instrumentos financieros y genera informes estructurados con series temporales, indicadores técnicos y fundamentales, análisis estadístico y recomendaciones basadas en Inteligencia Artificial. Integra ingestión de datos desde APIs externas y web scraping, almacenamiento flexible en base de datos NoSQL, procesamiento estadístico con ML y personalización mediante contexto conversacional.
 
-# Diseño de almacenamiento
+## Alcance
 
-**Recomendación primaria: NoSQL + motor de vectores** (por flexibilidad y velocidad para documento/serie y metadatos).
+## 🚀 Características Principales
 
-**Esquema sugerido (NoSQL — “”ORIENTATIVO””):**
+- **Entradas:** Consultas en lenguaje natural (ejemplo: “¿Cuál es la mejor empresa para invertir ahora?”).
+
+- **Chatbot Inteligente**- **Salidas:** Informes estructurados con datos en tiempo real e históricos, indicadores técnicos, métricas de riesgo y recomendaciones justificadas.
+
+  - Consultas en lenguaje natural- **Integraciones:** APIs de mercado, web scraping como respaldo, motores de embeddings y (opcional) integración con Python + ML.
+
+  - Respuestas contextualizadas
+
+  - Historial conversacional persistente## Flujo de Funcionamiento
+
+  - Interfaz intuitiva y responsiva
+
+1. Recepción de la consulta (chat o API).
+
+- **Análisis Financiero Automatizado**2. Preprocesamiento y vectorización para detectar intención y entidades.
+
+  - Indicadores técnicos (RSI, MACD, medias móviles, ATR)3. Búsqueda en la base de datos local (si existe historial o datos previos).
+
+  - Métricas de riesgo (VaR, volatilidad, correlaciones)4. Ingesta de datos externos en caso de ser necesario (API/web scraping).
+
+  - Series temporales y análisis estadístico5. Cálculo de estadísticas, indicadores técnicos y modelos de ML/series temporales.
+
+  - Generación de informes estructurados6. Generación del informe mediante plantilla y explicación (posible uso de LLM).
+
+  - Personalización de la respuesta según el contexto conversacional.
+
+- **Ingesta de Datos Flexible**8. Entrega al usuario y almacenamiento del intercambio para aprendizaje futuro.
+
+  - Integración con APIs de mercado financiero
+
+  - Web scraping como respaldo## Ejemplo de Ejecución
+
+  - Soporte para múltiples tipos de activos (acciones, criptomonedas, divisas FX, startups)
+
+  - Actualización en tiempo real**Consulta:** ¿Cuál es la mejor empresa para invertir ahora?
+
+- **Machine Learning**- Vectorización de la pregunta para identificar horizonte temporal y tipo de activo.
+
+  - Modelos predictivos con Prophet, PyTorch y TensorFlow- Consulta a la base de datos: precios, volumen, indicadores técnicos, noticias relevantes.
+
+  - Procesamiento de lenguaje natural- Ingesta de datos externos si la información es insuficiente.
+
+  - Vectorización semántica con embeddings- Ejecución de cálculos: RSI, MACD, medias móviles, volatilidad, VaR, correlaciones.
+
+  - Recomendaciones personalizadas- Generación de informe con resumen numérico, gráfico, conclusión y nivel de confianza.
+
+- **Dashboards y Reportes**## Diseño de Almacenamiento
+
+  - Visualizaciones interactivas con Plotly
+
+  - Exportación a múltiples formatos (Excel, CSV, PDF)**Recomendación:** Base de datos NoSQL + motor de vectores para flexibilidad y velocidad.
+
+  - Gráficos de series temporales
+
+  - Métricas clave en tiempo real**Esquema sugerido:**
 
 - id
-- tipo (accion/crypto/fx/startup/etc.)
-- fuente (link/s)
-- series (timestamp, open, high, low, close, volume)
-- indicadores (objeto JSON con RSI, MACD, MA, ATR, etc.)
-- pivot_points
-- technical_analysis.summary
-- metadata (sector, país, ticker, ISIN)
-- embeddings (vector para búsqueda semántica)
+
+## 📱 Guía de Uso- tipo (acción, cripto, FX, startup, etc.)
+
+- fuente (enlaces)
+
+### Acceso al Sistema- series (timestamp, open, high, low, close, volume)
+
+- indicadores (RSI, MACD, MA, ATR, etc.)
+
+1. Inicia el backend: `cd backend && npm run dev`- pivot_points
+
+2. Inicia el frontend: `cd frontend && npm start`- technical_analysis.summary
+
+3. Accede a la aplicación en `http://localhost:3000`- metadata (sector, país, ticker, ISIN)
+
+4. Para el módulo ML/Chatbot con Streamlit: `cd ml && streamlit run main.py`- embeddings (vector semántico)
+
 - ingesta.timestamp
-- quality_flags (missing_data, source_reliability)
 
-# Vectorización y personalización
+### Interfaz Principal- quality_flags (datos faltantes, confiabilidad de fuente)
 
-- Mantener un motor de embeddings (FAISS / Milvus / Pinecone) con representaciones de:
-    - preguntas dentro de cada chat/conversación (snapshot del contexto)
-    - documentos de análisis
-    - snapshots de conversaciones relevantes (no perfiles persistentes)
-- Importante: los embeddings **se indexan por conversación/chat**, no por perfil de usuario. Cada hilo tendrá su propio historial semántico y contexto, evitando mezclar intereses entre distintas conversaciones.
-- Re-rankear respuestas según similitud de embedding entre la **consulta y el estado actual del chat** para adaptar la respuesta al contexto conversacional.
+- **Chat**: Interfaz principal para realizar consultas en lenguaje natural## Vectorización y Personalización
 
-# Generación de reportes y gráficos
+- **Sidebar**: Navegación entre módulos (Chat IA, Dashboards, Reportes, ML Modelos)
 
-- El sistema debe poder generar:
-    - Gráficos interactivos y estáticos (series de precio, indicadores, correlaciones).
-    - Reportes descargables en PDF y XLSX con tablas, gráficos y notas explicativas.
-- Tecnologías sugeridas: matplotlib / plotly para gráficos, pandas / openpyxl / xlsxwriter para XLSX, ReportLab / wkhtmltopdf / WeasyPrint para PDFs.
-- Flujo: generar la visualización en el backend, incrustar en el informe, exportar a PDF/XLSX y ofrecer descarga o envío por email.
-- Guardar una copia del reporte en la BD (metadatos: versión del modelo, fecha, parámetros usados) para trazabilidad.
+- **Dashboards**: Visualización de métricas financieras (próximamente)- Motor de embeddings (FAISS, Milvus, Pinecone) para:
 
-# Consideraciones ML / IA
+- **Reportes**: Generación y descarga de informes estructurados (próximamente)    - Consultas y contexto conversacional.
 
-- Modelos de series temporales: ARIMA/Prophet/LSTM/Transformers según horizonte y calidad de datos.
-- Modelos explicables y límites claros: siempre proveer la razón y grado de confianza de la recomendación.
-- Integración con Python + MATE 3: confirmar compatibilidad, recursos (GPU/CPU), y cómo desplegar (batch vs real‑time).
+- Documentos de análisis.
 
-# Trazabilidad y auditoría
+### Funciones Principales    - Historial semántico por conversación
 
-- Mantener ingestion_logs y decision_logs (qué datos usó la IA para cada recomendación).
-- Guardar versión de modelo y parámetros usados en cada informe.
+- Las respuestas se re-ranquean según la similitud de embeddings entre la consulta y el estado actual del chat.
 
-# Requerimientos no funcionales
+#### Consultas en Lenguaje Natural
 
-- Latencia objetivo para consulta simple: < 2s (si datos en cache / BD local).
-- Jobs ETL diarios/horarios para sincronizar fuentes externas.
-- Monitorización de calidad de datos y alertas (missing data, drift).
+## Generación de Reportes y Gráficos
 
-# Tecnologías sugeridas (orientativo)
+1. Escribe tu consulta en el campo de texto (ejemplo: "¿Cuál es la mejor empresa para invertir ahora?")
 
-- BD NoSQL: MongoDB.
-- Vector DB: FAISS / Milvus / Pinecone (a ver).
-- Entorno: node.js (react, typescript).
-- ML: Python (scikit‑learn, statsmodels, pytorch/TF si hay modelos deep learning).
-- Frontend: microservicio REST/GraphQL, dashboard con gráficos (Plotly, Recharts, etc.).
-- Deploy: Vercel / firebase / hostinger
+2. El sistema procesará tu consulta mediante IA- Gráficos interactivos y estáticos (series de precios, indicadores, correlaciones).
 
-# OPCIONALES
+3. Recibirás una respuesta contextualizada con análisis y recomendaciones- Reportes descargables en PDF y XLSX con tablas, gráficos y notas explicativas.
 
-- **Entrenar una red neuronal propia**: construir modelos de series temporales (Transformers / LSTM) para predicción interna y no depender completamente de APIs externas.
-- **Entrenar/desplegar un modelo de lenguaje propio**: investigar fine‑tuning o entrenamiento desde cero de un LLM para generar informes y respuestas sin depender de servicios externos. Esto requiere datasets, infraestructura y controles de seguridad.
-- **Infraestructura propuesta**: cluster de entrenamiento (GPUs/TPUs), sistema de versiones de modelos (MLflow / DVC), pipeline de MLOps para despliegue y monitorización.
-- **Pros/Contras**: mayor control y privacidad vs coste y complejidad operativa. Definir roadmap y presupuesto antes de comprometer recursos.
+4. El historial se mantiene durante la sesión para seguimiento- Tecnologías recomendadas: matplotlib, plotly, pandas, openpyxl, xlsxwriter, ReportLab, wkhtmltopdf, WeasyPrint.
 
-[tablero](https://www.notion.so/263aabf0ff7280dc8217c381c8a95c7b?pvs=21)
+- Flujo: generación en backend, incrustación en informe, exportación y almacenamiento para trazabilidad.
+
+### Análisis Financiero
+
+## Consideraciones de ML/IA
+
+El sistema analiza automáticamente:
+
+- **Precios históricos**: Open, High, Low, Close, Volume- Modelos de series temporales: ARIMA, Prophet, LSTM, Transformers según horizonte y calidad de datos.
+
+- **Indicadores técnicos**: RSI, MACD, Medias Móviles, ATR- Modelos explicables: siempre incluir justificación y grado de confianza.
+
+- **Métricas de riesgo**: Volatilidad, VaR, correlaciones- Integración con Python + MATE 3: confirmar compatibilidad y recursos disponibles.
+
+- **Análisis fundamental**: Sector, país, métricas empresariales
+
+- **Recomendaciones**: Basadas en el análisis completo y contexto del usuario## Trazabilidad y Auditoría
+
+## 🛠️ Tecnologías- Mantener ingestion_logs y decision_logs para registrar datos utilizados en cada recomendación
+
+- Guardar versión de modelo y parámetros en cada informe.
+
+### Frontend
+
+## Requerimientos No Funcionales
+
+- **React** 18 con TypeScript
+
+- **Create React App** (configuración inicial)- Latencia objetivo para consultas simples: < 2 segundos (con datos en caché/BD local).
+
+- **Bootstrap** 5 para estilos base- Jobs ETL periódicos para sincronización de fuentes externas.
+
+- **CSS Modules** para estilos personalizados- Monitorización de calidad de datos y alertas (datos faltantes, drift).
+
+- **Fetch API** para comunicación con backend
+
+## Tecnologías Sugeridas
+
+### Backend
+
+- Base de datos NoSQL: MongoDB.
+
+- **Node.js** con Express- Vector DB: FAISS, Milvus, Pinecone.
+
+- **TypeScript** para tipado estático- Backend: Node.js (TypeScript).
+
+- **CORS** para manejo de peticiones cross-origin- ML: Python (scikit-learn, statsmodels, PyTorch, TensorFlow).
+
+- **Dotenv** para variables de entorno- Frontend: Microservicio REST/GraphQL, dashboard con gráficos (Plotly, Recharts).
+
+- **GraphQL** (planificado)- Deploy: Vercel, Firebase, Hostinger.
+
+- **MongoDB/Mongoose** para base de datos NoSQL
+
+## Opcionales
+
+### Machine Learning / Python
+
+- Entrenamiento de modelos propios de series temporales (Transformers/LSTM).
+
+- **Streamlit** para interfaz de chatbot- Fine-tuning o entrenamiento de LLM para generación de informes y respuestas.
+
+- **OpenAI API** / **OpenRouter** para procesamiento de lenguaje natural- Infraestructura: cluster de entrenamiento (GPU/TPU), versionado de modelos (MLflow/DVC), pipeline de MLOps.
+
+- **Pandas** y **NumPy** para análisis de datos- Evaluar pros/contras: mayor control y privacidad vs coste y complejidad operativa.
+
+- **Scikit-learn** para modelos ML
+
+- **Statsmodels** para análisis estadístico[tablero](https://www.notion.so/263aabf0ff7280dc8217c381c8a95c7b?pvs=21)
+
+- **Prophet**, **PyTorch**, **TensorFlow** para modelos predictivos
+- **Matplotlib** y **Plotly** para visualizaciones
+- **ReportLab** para generación de PDFs
+
+### Herramientas de Desarrollo
+
+- **ts-node** para ejecución de TypeScript
+- **nodemon** para desarrollo con hot-reload
+- **ESLint** y **Prettier** (recomendado)
+
+## 📦 Dependencias Principales
+
+### Backend (`backend/package.json`)
+
+```json
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "dotenv": "^16.0.0",
+    "graphql": "^16.8.1",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.6.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  }
+}
+```
+
+### Frontend (`frontend/package.json`)
+
+- **React** y **React-DOM**
+- **TypeScript**
+- **Bootstrap**
+- **Web Vitals** para métricas de rendimiento
+
+### ML/Python (`ml/requirements.txt`)
+
+- pandas, numpy, scikit-learn, statsmodels
+- matplotlib, plotly
+- openpyxl, xlsxwriter, reportlab
+- prophet, torch, tensorflow
+- openai, streamlit
+
+## 🏗️ Arquitectura del Sistema
+
+```mermaid
+flowchart LR
+    Usuario[Usuario]
+    Frontend["Frontend React<br/>(TypeScript)"]
+    Backend["Backend Express<br/>(Node.js + TypeScript)"]
+    ML["ML Service<br/>(Python + Streamlit)"]
+    BaseDatos[(MongoDB<br/>NoSQL)]
+    APIsExternas["APIs Externas<br/>(Mercados Financieros)"]
+
+    Usuario -->|Interactúa| Frontend
+    Usuario -->|Chatbot ML| ML
+    Frontend -->|API REST| Backend
+    Backend -->|Consultas| BaseDatos
+    Backend -->|Ingesta datos| APIsExternas
+    Backend -->|Análisis ML| ML
+    BaseDatos -->|Respuestas| Backend
+    Backend -->|JSON| Frontend
+    Frontend -->|Visualización| Usuario
+```
+
+### Componentes Principales
+
+1. **Frontend (React + TypeScript)**
+   - Componente Chat: Interfaz conversacional principal
+   - Componente Sidebar: Navegación entre módulos
+   - Servicio geminiApi: Comunicación con backend
+
+2. **Backend (Express + TypeScript)**
+   - API REST en `/api/chat` para procesamiento de consultas
+   - Integración con OpenRouter/DeepSeek para IA
+   - Gestión de base de datos MongoDB (planificado)
+   - Endpoints para ingesta y análisis de datos
+
+3. **ML Service (Python + Streamlit)**
+   - Chatbot independiente con Streamlit
+   - Procesamiento de lenguaje natural
+   - Modelos de ML para predicciones
+   - Generación de reportes automatizados
+
+4. **Base de Datos (MongoDB - NoSQL)**
+   - Esquema flexible para datos heterogéneos
+   - Colecciones: instruments, reports, users, conversations
+   - Índices para búsquedas rápidas
+   - Embeddings vectoriales para búsqueda semántica
+
+### Flujo de Datos
+
+1. El usuario realiza una consulta en lenguaje natural
+2. El frontend envía la consulta al backend vía API REST
+3. El backend procesa la consulta:
+   - Vectoriza el texto para detectar intención
+   - Busca información relevante en la base de datos
+   - Si es necesario, consulta APIs externas para datos actualizados
+   - Calcula indicadores técnicos y métricas de riesgo
+4. El backend genera una respuesta estructurada usando IA
+5. La respuesta se envía al frontend y se muestra al usuario
+6. El intercambio se almacena en la BD para aprendizaje futuro
+
+## 🔒 Seguridad
+
+### Autenticación y Autorización (Planificado)
+
+- Sistema de usuarios con roles
+- JWT para autenticación segura
+- Sesiones con tiempo limitado
+- Registro de auditoría de consultas
+
+### Protección de Datos
+
+- Variables de entorno para claves API (`.env`)
+- **IMPORTANTE**: Las claves API NO deben commitearse
+- Validación y sanitización de entradas
+- Encriptación de datos sensibles
+
+### Configuración de Variables de Entorno
+
+**PowerShell (Windows):**
+
+```powershell
+$env:OPENROUTER_API_KEY = "tu-clave-api-aqui"
+```
+
+**Archivo `.env`:**
+
+```powershell
+OPENROUTER_API_KEY=tu-clave-api-aqui
+PORT=3001
+```
+
+## 📊 Diagramas
+
+### Diagrama de Flujo
+
+```mermaid
+flowchart TD
+    A["Inicio"] --> B["Usuario realiza consulta"]
+    B --> C["Frontend envía a Backend"]
+    C --> D["Backend procesa consulta"]
+    D --> E{"¿Datos en BD?"}
+    E -->|Sí| F["Recuperar datos"]
+    E -->|No| G["Ingestar desde API"]
+    G --> H["Almacenar en BD"]
+    H --> F
+    F --> I["Calcular indicadores técnicos"]
+    I --> J["Aplicar modelos ML"]
+    J --> K["Generar respuesta con IA"]
+    K --> L["Enviar respuesta a Frontend"]
+    L --> M["Mostrar al usuario"]
+    M --> N["Almacenar en historial"]
+    N --> O["Fin"]
+```
+
+### Esquema de Base de Datos (NoSQL - MongoDB)
+
+- **Colección: instruments**
+
+```json
+{
+  "_id": "ObjectId",
+  "tipo": "acción | cripto | FX | startup",
+  "ticker": "AAPL",
+  "nombre": "Apple Inc.",
+  "fuente": ["https://api.example.com"],
+  "series": [
+    {
+      "timestamp": "2024-01-01T00:00:00Z",
+      "open": 150.0,
+      "high": 155.0,
+      "low": 149.0,
+      "close": 154.0,
+      "volume": 1000000
+    }
+  ],
+  "indicadores": {
+    "RSI": 65.5,
+    "MACD": {"macd": 2.5, "signal": 2.0, "histogram": 0.5},
+    "MA_50": 152.0,
+    "MA_200": 148.0,
+    "ATR": 3.2
+  },
+  "pivot_points": {
+    "pivot": 152.0,
+    "r1": 154.0,
+    "r2": 156.0,
+    "s1": 150.0,
+    "s2": 148.0
+  },
+  "technical_analysis": {
+    "summary": "compra | venta | neutral",
+    "confidence": 0.85
+  },
+  "metadata": {
+    "sector": "Technology",
+    "pais": "USA",
+    "ISIN": "US0378331005"
+  },
+  "embeddings": [0.1, 0.2, ...],
+  "ingesta": {
+    "timestamp": "2024-01-01T12:00:00Z",
+    "fuente": "API_XYZ"
+  },
+  "quality_flags": {
+    "datos_faltantes": false,
+    "confiabilidad": "alta"
+  }
+}
+```
+
+- **Colección: conversations**
+
+```json
+{
+  "_id": "ObjectId",
+  "session_id": "uuid",
+  "user_id": "ObjectId",
+  "messages": [
+    {
+      "role": "user | assistant",
+      "content": "texto del mensaje",
+      "timestamp": "2024-01-01T12:00:00Z"
+    }
+  ],
+  "context": {
+    "instruments_mentioned": ["AAPL", "GOOGL"],
+    "analysis_performed": ["RSI", "MACD"]
+  },
+  "created_at": "2024-01-01T12:00:00Z"
+}
+```
+
+- **Colección: reports**
+
+```json
+{
+  "_id": "ObjectId",
+  "user_id": "ObjectId",
+  "query": "¿Cuál es la mejor empresa para invertir?",
+  "instruments_analyzed": ["AAPL", "GOOGL", "MSFT"],
+  "recommendation": {
+    "symbol": "AAPL",
+    "action": "compra",
+    "confidence": 0.85,
+    "reasoning": "Análisis detallado..."
+  },
+  "technical_indicators": {},
+  "risk_metrics": {},
+  "created_at": "2024-01-01T12:00:00Z"
+}
+```
+
+### Diagrama de Secuencia
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Usuario
+    participant Frontend
+    participant Backend
+    participant BaseDatos
+    participant APIsExternas
+    participant ServicioML
+
+    Usuario->>Frontend: Escribe consulta en chat
+    Frontend->>Backend: POST /api/chat {query}
+    Backend->>Backend: Vectoriza consulta
+    Backend->>BaseDatos: Buscar datos existentes
+    
+    alt Datos no actualizados o inexistentes
+        Backend->>APIsExternas: GET datos financieros
+        APIsExternas-->>Backend: Datos en JSON
+        Backend->>BaseDatos: Almacenar nuevos datos
+    end
+    
+    BaseDatos-->>Backend: Retorna datos
+    Backend->>Backend: Calcular indicadores técnicos
+    Backend->>ServicioML: Analizar con modelos ML
+    ServicioML-->>Backend: Predicciones y análisis
+    Backend->>Backend: Generar respuesta con IA
+    Backend-->>Frontend: JSON {response}
+    Frontend-->>Usuario: Muestra respuesta en chat
+    Frontend->>Backend: POST /api/history (guardar)
+    Backend->>BaseDatos: Almacenar conversación
+```
+
+## 🚀 Instalación y Ejecución
+
+### Prerrequisitos
+
+- Node.js 16+ y npm
+- Python 3.8+
+- MongoDB (local o remoto)
+- Clave API de OpenRouter/OpenAI
+
+### Instalación
+
+```powershell
+# Clonar repositorio
+git clone https://github.com/LisanRios/TP-final-base-de-datos.git
+cd TP-final-base-de-datos
+
+# Instalar dependencias del backend
+cd backend
+npm install
+
+# Instalar dependencias del frontend
+cd ../frontend
+npm install
+
+# Instalar dependencias de Python
+cd ../ml
+pip install -r requirements.txt
+```
+
+### Configuración
+
+- Crear archivo `.env` en la raíz y en `backend/`:
+
+```env
+OPENROUTER_API_KEY=tu-clave-api
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/tp-final-bd
+```
+
+- Configurar MongoDB:
+
+1. Instalar MongoDB Community Edition
+2. O usar MongoDB Atlas (cloud)
+3. Actualizar URI de conexión en `.env`
+
+### Ejecución en Desarrollo
+
+```powershell
+# Terminal 1: Backend
+cd backend
+npm run dev
+
+# Terminal 2: Frontend
+cd frontend
+npm start
+
+# Terminal 3: ML Service (opcional)
+cd ml
+streamlit run main.py
+```
+
+El frontend estará disponible en `http://localhost:3000` y el backend en `http://localhost:3001`.
+
+## 📚 Herramientas Externas
+
+- [Mermaid](https://mermaid.live/edit) para visualización de diagramas
+- [Shields.io](https://shields.io/) para badges de tecnologías
+- [OpenRouter](https://openrouter.ai/) para acceso a modelos de IA
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) para base de datos en la nube
+- [Notion](https://www.notion.so/) para gestión de proyecto
+
+## 📝 Historial de Versiones
+
+- **v1.0.0**: Versión inicial con chatbot funcional y estructura base del proyecto
+  - Frontend React con TypeScript
+  - Backend Express con integración a OpenRouter
+  - Módulo ML con Streamlit
+  - Estructura de base de datos NoSQL planificada
+  - Interfaz de chat con historial de mensajes
+  - Sidebar de navegación
+
+## 🔗 Enlaces Útiles
+
+- [Tablero de Notion](https://www.notion.so/263aabf0ff7280dc8217c381c8a95c7b?pvs=21) - Gestión del proyecto
+- [Repositorio GitHub](https://github.com/LisanRios/TP-final-base-de-datos)
+
+## 🤝 Contribuciones
+
+Proyecto desarrollado como trabajo práctico final para la materia Base de Datos.
+
+---
+
+© 2025 TP Final Base de Datos - Análisis Financiero con IA

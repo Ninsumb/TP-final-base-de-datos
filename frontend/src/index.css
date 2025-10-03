@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #111827; /* Fondo del chat */
+}
+
+#root {
+    background-image: radial-gradient(at 20% 80%, #173b5e 0px, transparent 40%),
+                        radial-gradient(at 80% 20%, rgba(79,70,229,0.125) 0px, transparent 40%);
+    background-attachment: fixed; 
+}
