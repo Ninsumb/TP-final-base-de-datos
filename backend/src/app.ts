@@ -2,11 +2,10 @@ import express from 'express';
 import cors from 'cors';
 // Cargar variables de entorno desde backend/.env en desarrollo
 import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env' });
 import * as cheerio from "cheerio";
-import { connectToDatabase, closeDatabaseConnection, getDb } from './db';
+dotenv.config({ path: '.env' });
 
+import { connectToDatabase, closeDatabaseConnection, getDb } from './db';
 
 async function getInvestingData(url: string): Promise<string> {
   //Obtiene el JSON de investing
@@ -152,7 +151,7 @@ const PORT = Number(process.env.PORT) || 3001;
 async function startServer() {
   try {
     // Conectar a la base de datos (usa MONGODB_URI en backend/.env)
-    await connectToDatabase();
+    //await connectToDatabase();
 
     app.listen(PORT, () => {
       console.log(`Backend escuchando en puerto ${PORT}`);
@@ -162,6 +161,9 @@ async function startServer() {
     process.exit(1);
   }
 }
+
+
+
 
 startServer();
 
